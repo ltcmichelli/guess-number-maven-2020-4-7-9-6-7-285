@@ -19,6 +19,7 @@ public class GuessNumberGameTest {
         //given
         GuessNumberGame game = new GuessNumberGame();
         String input = "1,2,3,4";
+        game.setAnswer(answer);
 
         //when
         String result = game.guess(input);
@@ -70,7 +71,7 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    public void should_return_0A4B_given_user_answer_one_correct_digit_in_wrong_position_when_guess() {
+    public void should_return_0A4B_given_user_answer_four_correct_digit_in_wrong_position_when_guess() {
         //given
         GuessNumberGame game = new GuessNumberGame();
         String input = "8,6,9,7";
@@ -81,5 +82,19 @@ public class GuessNumberGameTest {
 
         //then
         Assert.assertEquals("0A4B", result);
+    }
+
+    @Test
+    public void should_return_2A2B_given_user_answer_two_correct_digit_in_wrong_position_and_two_digit_correct_when_guess() {
+        //given
+        GuessNumberGame game = new GuessNumberGame();
+        String input = "6,7,9,8";
+        game.setAnswer(answer);
+
+        //when
+        String result = game.guess(input);
+
+        //then
+        Assert.assertEquals("2A2B", result);
     }
 }

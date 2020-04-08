@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static java.lang.Integer.parseInt;
-
 public class InputValidator {
 
     public static final String ERROR_MSG = "Wrong Input, Input again";

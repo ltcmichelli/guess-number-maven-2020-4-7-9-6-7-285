@@ -68,4 +68,18 @@ public class GuessNumberGameTest {
         //then
         Assert.assertEquals("0A1B", result);
     }
+
+    @Test
+    public void should_return_0A4B_given_user_answer_one_correct_digit_in_wrong_position_when_guess() {
+        //given
+        GuessNumberGame game = new GuessNumberGame();
+        String input = "8,6,9,7";
+        game.setAnswer(answer);
+
+        //when
+        String result = game.guess(input);
+
+        //then
+        Assert.assertEquals("0A4B", result);
+    }
 }

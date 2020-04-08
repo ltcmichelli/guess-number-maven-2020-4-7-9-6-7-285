@@ -21,6 +21,10 @@ public class InputValidator {
     }
 
     public boolean checkValid(String input) {
+        if(input.isEmpty()){
+            return false;
+        }
+
         List<String> inputList = new ArrayList<>(Arrays.asList(input.split(",")));
         List<Integer> removeDuplicateNumList = inputList.stream().map(Integer::parseInt).distinct().collect(Collectors.toList());
         if (removeDuplicateNumList.size() != 4) {

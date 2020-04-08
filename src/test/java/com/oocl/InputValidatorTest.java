@@ -54,4 +54,14 @@ public class InputValidatorTest {
         //then
         Assert.assertEquals("Wrong Input, Input again\r\n", stream.toString());
     }
+
+    @Test
+    public void should_return_false_given_input_is_empty() {
+        //given
+        InputValidator validator = new InputValidator();
+        String input = "";
+
+        //then
+        Assert.assertFalse(validator.checkValid(input));
+    }
 }

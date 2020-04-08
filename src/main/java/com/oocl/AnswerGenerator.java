@@ -12,7 +12,7 @@ public class AnswerGenerator {
     }
 
     public HashMap<Integer, Integer> generateAnswer() {
-        int counter = 1;
+        int counter = 0;
         answerMap = new HashMap<>();
         int generateNum = generateNumber();
         answerMap.put(counter, generateNum);

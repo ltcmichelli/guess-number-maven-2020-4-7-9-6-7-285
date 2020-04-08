@@ -7,20 +7,31 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GuessNumberGame {
-    private AnswerGenerator generator = new AnswerGenerator();
+    HashMap<Integer, Integer> answer;
 
-    private HashMap<Integer, Integer> answer = generator.generateAnswer();
+    public void setAnswer(HashMap<Integer, Integer> answer) {
+        this.answer = answer;
+    }
 
     public String guess(String input) {
         List<String> inputList = new ArrayList<>(Arrays.asList(input.split(",")));
         List<Integer> inputIntegerList = inputList.stream().map(Integer::parseInt).distinct().collect(Collectors.toList());
 
-        return checkEqualValueInCorrectPosition(inputIntegerList);
+        return checkEqualValueInCorrectPosition(inputIntegerList) + "0B";
 
     }
 
     public String checkEqualValueInCorrectPosition(List<Integer> userInputList){
-        return "0A0B";
+        int counter = 0;
+        int value;
+        for (Integer key : answer.keySet()) {
+            value = answer.get(key);
+            if (userInputList.get(key).equals(value)){
+                counter += 1;
+            }
+        }
+
+        return counter + "A";
     }
 
 }

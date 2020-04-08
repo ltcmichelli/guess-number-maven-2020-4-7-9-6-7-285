@@ -17,7 +17,7 @@ public class GuessNumberGame {
         List<String> inputList = new ArrayList<>(Arrays.asList(input.split(",")));
         List<Integer> inputIntegerList = inputList.stream().map(Integer::parseInt).distinct().collect(Collectors.toList());
 
-        return checkEqualValueInCorrectPosition(inputIntegerList) + "0B";
+        return checkEqualValueInCorrectPosition(inputIntegerList) + checkEqualValueInDiffPosition(inputIntegerList);
 
     }
 
@@ -30,8 +30,19 @@ public class GuessNumberGame {
                 counter += 1;
             }
         }
-
         return counter + "A";
+    }
+
+    public String checkEqualValueInDiffPosition(List<Integer> userInputList){
+        int counter = 0;
+        int value;
+        for (Integer key : answer.keySet()) {
+            value = answer.get(key);
+            if (!userInputList.get(key).equals(value) && userInputList.contains(value)){
+                counter += 1;
+            }
+        }
+        return counter + "B";
     }
 
 }

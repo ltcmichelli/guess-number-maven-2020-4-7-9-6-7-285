@@ -12,7 +12,7 @@ public class InputValidatorTest {
         String input = "1,2,3,4";
 
         //then
-        Assert.assertTrue(validator.isValid(input));
+        Assert.assertTrue(validator.checkValid(input));
     }
 
     @Test
@@ -22,7 +22,7 @@ public class InputValidatorTest {
         String input = "1,2,3";
 
         //then
-        Assert.assertFalse(validator.isValid(input));
+        Assert.assertFalse(validator.checkValid(input));
     }
 
     @Test
@@ -32,6 +32,6 @@ public class InputValidatorTest {
         String input = "1,1,3,5";
 
         //then
-        Assert.assertFalse(validator.isValid(input));
+        Assert.assertFalse(validator.checkValid(input));
     }
 }

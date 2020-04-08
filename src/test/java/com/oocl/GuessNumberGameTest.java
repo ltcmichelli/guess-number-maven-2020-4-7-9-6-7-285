@@ -40,4 +40,18 @@ public class GuessNumberGameTest {
         //then
         Assert.assertEquals("1A0B", result);
     }
+
+    @Test
+    public void should_return_4A0B_given_user_answer_all_correct_when_guess() {
+        //given
+        GuessNumberGame game = new GuessNumberGame();
+        String input = "6,7,8,9";
+        game.setAnswer(answer);
+
+        //when
+        String result = game.guess(input);
+
+        //then
+        Assert.assertEquals("4A0B", result);
+    }
 }

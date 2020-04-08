@@ -8,9 +8,23 @@ import java.util.stream.Collectors;
 
 public class GuessNumberGame {
     HashMap<Integer, Integer> answer;
+    public boolean isWin;
+
+    public boolean getIsWin() {
+        return isWin;
+    }
 
     public void setAnswer(HashMap<Integer, Integer> answer) {
         this.answer = answer;
+    }
+
+    public void play(String input){
+        isWin = false;
+        String result = guess(input);
+        if (result.equals("4A0B")){
+            isWin = true;
+        }
+        System.out.println(result);
     }
 
     public String guess(String input) {
@@ -18,7 +32,6 @@ public class GuessNumberGame {
         List<Integer> inputIntegerList = inputList.stream().map(Integer::parseInt).distinct().collect(Collectors.toList());
 
         return checkEqualValueInCorrectPosition(inputIntegerList) + checkEqualValueInDiffPosition(inputIntegerList);
-
     }
 
     public String checkEqualValueInCorrectPosition(List<Integer> userInputList){

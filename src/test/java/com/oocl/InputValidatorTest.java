@@ -3,6 +3,9 @@ package com.oocl;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 public class InputValidatorTest {
 
     @Test
@@ -33,5 +36,22 @@ public class InputValidatorTest {
 
         //then
         Assert.assertFalse(validator.checkValid(input));
+    }
+
+    @Test
+    public void should_return_msg_when_invalid() {
+        //given
+        InputValidator validator = new InputValidator();
+        String input = "1,1,3,5";
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(stream);
+        System.setOut(printStream);
+
+        //when
+        validator.validate(input);
+
+        //then
+        Assert.assertEquals("Wrong Input, Input again\r\n", stream.toString());
     }
 }

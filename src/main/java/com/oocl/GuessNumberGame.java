@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GuessNumberGame {
+    public static final String ALL_CORRECT_RESULT_PATTERN = "4A0B";
+    public static final String VALUE_AND_POSITION_CORRECT = "A";
+    public static final String VALUE_CORRECT = "B";
     HashMap<Integer, Integer> answer;
     public boolean isWin;
 
@@ -21,7 +24,7 @@ public class GuessNumberGame {
     public void play(String input){
         isWin = false;
         String result = guess(input);
-        if (result.equals("4A0B")){
+        if (result.equals(ALL_CORRECT_RESULT_PATTERN)){
             isWin = true;
         }
         System.out.println(result);
@@ -31,10 +34,10 @@ public class GuessNumberGame {
         List<String> inputList = new ArrayList<>(Arrays.asList(input.split(",")));
         List<Integer> inputIntegerList = inputList.stream().map(Integer::parseInt).distinct().collect(Collectors.toList());
 
-        return checkEqualValueInCorrectPosition(inputIntegerList) + checkEqualValueInDiffPosition(inputIntegerList);
+        return getValueAndPositionCorrectResult(inputIntegerList) + getValueCorrectResult(inputIntegerList);
     }
 
-    public String checkEqualValueInCorrectPosition(List<Integer> userInputList){
+    public String getValueAndPositionCorrectResult(List<Integer> userInputList){
         int counter = 0;
         int value;
         for (Integer key : answer.keySet()) {
@@ -43,10 +46,10 @@ public class GuessNumberGame {
                 counter += 1;
             }
         }
-        return counter + "A";
+        return counter + VALUE_AND_POSITION_CORRECT;
     }
 
-    public String checkEqualValueInDiffPosition(List<Integer> userInputList){
+    public String getValueCorrectResult(List<Integer> userInputList){
         int counter = 0;
         int value;
         for (Integer key : answer.keySet()) {
@@ -55,7 +58,7 @@ public class GuessNumberGame {
                 counter += 1;
             }
         }
-        return counter + "B";
+        return counter + VALUE_CORRECT;
     }
 
 }

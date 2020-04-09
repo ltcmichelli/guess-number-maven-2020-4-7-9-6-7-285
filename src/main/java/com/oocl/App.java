@@ -33,8 +33,10 @@ public class App {
 
         if (game.getIsWin()) {
             System.out.println("You Win!");
+            System.out.println("Answer is" + answer.values());
         } else {
             System.out.println("You Lose!");
+            System.out.println("Answer is" + answer.values());
         }
     }
 }

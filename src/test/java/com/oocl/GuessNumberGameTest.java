@@ -70,31 +70,32 @@ public class GuessNumberGameTest {
         Assert.assertEquals("0A1B", result);
     }
 
-//    @Test
-//    public void should_return_4A0B_given_user_answer_all_correct_when_guess() {
-//        //given
-//        GuessNumberGame game = new GuessNumberGame();
-//        String input = "6,7,8,9";
-//        game.setAnswer(answer);
-//
-//        //when
-//        String result = game.guess(input);
-//
-//        //then
-//        Assert.assertEquals("4A0B", result);
-//    }
+    @Test
+    public void should_return_2A2B_given_user_answer_two_correct_digit_in_wrong_position_and_two_digit_correct_when_guess() {
+        //given
+        GuessNumberGame game = new GuessNumberGame();
+        String input = "6,7,9,8";
+        game.setAnswer(answer);
 
-//    @Test
-//    public void should_return_2A2B_given_user_answer_two_correct_digit_in_wrong_position_and_two_digit_correct_when_guess() {
-//        //given
-//        GuessNumberGame game = new GuessNumberGame();
-//        String input = "6,7,9,8";
-//        game.setAnswer(answer);
-//
-//        //when
-//        String result = game.guess(input);
-//
-//        //then
-//        Assert.assertEquals("2A2B", result);
-//    }
+        //when
+        String result = game.guess(input);
+
+        //then
+        Assert.assertEquals("2A2B", result);
+    }
+    
+    @Test
+    public void should_return_4A0B_given_user_answer_all_correct_when_guess() {
+        //given
+        GuessNumberGame game = new GuessNumberGame();
+        String input = "6,7,8,9";
+        game.setAnswer(answer);
+
+        //when
+        String result = game.guess(input);
+
+        //then
+        Assert.assertEquals("4A0B", result);
+    }
+
 }

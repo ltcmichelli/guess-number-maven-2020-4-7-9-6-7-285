@@ -28,19 +28,19 @@ public class GuessNumberGameTest {
         Assert.assertEquals("0A0B", result);
     }
 
-//    @Test
-//    public void should_return_0A2B_given_user_answer_one_digit_correct_when_guess() {
-//        //given
-//        GuessNumberGame game = new GuessNumberGame();
-//        String input = "6,2,3,4";
-//        game.setAnswer(answer);
-//
-//        //when
-//        String result = game.guess(input);
-//
-//        //then
-//        Assert.assertEquals("1A0B", result);
-//    }
+    @Test
+    public void should_return_0A2B_given_user_answer_partially_digit_correct_in_wrong_position_when_guess() {
+        //given
+        GuessNumberGame game = new GuessNumberGame();
+        String input = "1,6,3,7";
+        game.setAnswer(answer);
+
+        //when
+        String result = game.guess(input);
+
+        //then
+        Assert.assertEquals("0A2B", result);
+    }
 
 //    @Test
 //    public void should_return_4A0B_given_user_answer_all_correct_when_guess() {

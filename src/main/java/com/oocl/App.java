@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Hello world!
  */
 public class App {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         GuessNumberGame game = new GuessNumberGame();
         game.startGame();
     }

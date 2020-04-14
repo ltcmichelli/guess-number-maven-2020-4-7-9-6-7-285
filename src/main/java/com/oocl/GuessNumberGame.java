@@ -1,6 +1,5 @@
 package com.oocl;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -67,31 +66,31 @@ public class GuessNumberGame {
         List<Integer> inputIntegerList = inputList.stream().map(Integer::parseInt).distinct().collect(Collectors.toList());
 
         String result = getValueAndPositionCorrectResult(inputIntegerList) + getValueCorrectResult(inputIntegerList);
-        if (result.equals(ALL_CORRECT_RESULT_PATTERN)){
+        if (result.equals(ALL_CORRECT_RESULT_PATTERN)) {
             isWin = true;
         }
 
         return result;
     }
 
-    protected String getValueAndPositionCorrectResult(List<Integer> userInputList){
+    protected String getValueAndPositionCorrectResult(List<Integer> userInputList) {
         int counter = 0;
         int value;
         for (Integer key : answer.keySet()) {
             value = answer.get(key);
-            if (userInputList.get(key).equals(value)){
+            if (userInputList.get(key).equals(value)) {
                 counter += 1;
             }
         }
         return counter + VALUE_AND_POSITION_CORRECT;
     }
 
-    protected String getValueCorrectResult(List<Integer> userInputList){
+    protected String getValueCorrectResult(List<Integer> userInputList) {
         int counter = 0;
         int value;
         for (Integer key : answer.keySet()) {
             value = answer.get(key);
-            if (!userInputList.get(key).equals(value) && userInputList.contains(value)){
+            if (!userInputList.get(key).equals(value) && userInputList.contains(value)) {
                 counter += 1;
             }
         }

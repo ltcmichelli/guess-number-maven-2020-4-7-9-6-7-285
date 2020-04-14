@@ -12,7 +12,7 @@ public class ConsoleInputReader implements InputReader {
             Scanner userInput = new Scanner(System.in);
             inputString = userInput.nextLine();
             validator.validate(inputString);
-        } while (!validator.isValid);
+        } while (!validator.isValid());
         return inputString;
     }
 }

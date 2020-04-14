@@ -8,20 +8,21 @@ import java.util.stream.Collectors;
 public class InputValidator {
     public boolean isValid;
 
-    public boolean getIsValid() {
+    public boolean isValid() {
         return isValid;
     }
 
     public static final String ERROR_MSG = "Wrong Input, Input again";
-    public void validate(String input){
+
+    public void validate(String input) {
         isValid = checkValid(input);
-        if (!isValid){
+        if (!isValid) {
             System.out.println(ERROR_MSG);
         }
     }
 
     public boolean checkValid(String input) {
-        if(input.isEmpty()){
+        if (input.isEmpty()) {
             return false;
         }
 

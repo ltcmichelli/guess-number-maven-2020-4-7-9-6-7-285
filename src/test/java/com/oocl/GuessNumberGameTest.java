@@ -83,7 +83,7 @@ public class GuessNumberGameTest {
         //then
         Assert.assertEquals("2A2B", result);
     }
-    
+
     @Test
     public void should_return_4A0B_given_user_answer_all_correct_when_guess() {
         //given

@@ -56,7 +56,7 @@ public class GuessNumberGame {
 
         if (isWin()) {
             System.out.println(WIN_MESSAGE + this.getAnswer().values());
-        } else if (isGameOver()) {
+        } else {
             System.out.println(LOSE_MESSAGE + this.getAnswer().values());
         }
     }

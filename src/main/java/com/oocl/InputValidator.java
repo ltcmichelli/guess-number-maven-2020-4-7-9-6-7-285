@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class InputValidator {
+    public static final String COMMA = ",";
+    public static final int UPPER_LIMIT_OF_NUMBER = 4;
     public boolean isValid;
 
     public boolean isValid() {
@@ -26,12 +28,9 @@ public class InputValidator {
             return false;
         }
 
-        List<String> inputList = new ArrayList<>(Arrays.asList(input.split(",")));
+        List<String> inputList = new ArrayList<>(Arrays.asList(input.split(COMMA)));
         List<Integer> removeDuplicateNumList = inputList.stream().map(Integer::parseInt).distinct().collect(Collectors.toList());
-        if (removeDuplicateNumList.size() != 4) {
-            return false;
-        }
-        return true;
+        return removeDuplicateNumList.size() == UPPER_LIMIT_OF_NUMBER;
     }
 }
 

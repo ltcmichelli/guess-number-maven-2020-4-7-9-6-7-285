@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class AnswerGenerator {
+    public static final int NUMBER_RANGE_UPPER_BOUND = 10;
+    public static final int UPPER_LIMIT_OF_NUMBER = 4;
     HashMap<Integer, Integer> answerMap;
 
     public int generateNumber() {
         Random random = new Random();
-        return random.nextInt(10);
+        return random.nextInt(NUMBER_RANGE_UPPER_BOUND);
     }
 
     public HashMap<Integer, Integer> generateAnswer() {
@@ -22,7 +24,7 @@ public class AnswerGenerator {
                 counter += 1;
                 answerMap.put(counter, generateNum);
             }
-        } while (answerMap.size() < 4);
+        } while (answerMap.size() < UPPER_LIMIT_OF_NUMBER);
 
         return answerMap;
     }

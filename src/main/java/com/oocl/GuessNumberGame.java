@@ -72,7 +72,7 @@ public class GuessNumberGame {
 
         return result;
     }
-
+// TODO return counter only, combine 2 method
     protected String getValueAndPositionCorrectResult(List<Integer> userInputList) {
         int counter = 0;
         int value;

@@ -8,8 +8,6 @@ import java.util.stream.Collectors;
 
 public class GuessNumberGame {
     private static final String ALL_CORRECT_RESULT_PATTERN = "4A0B";
-    private static final String VALUE_AND_POSITION_CORRECT = "A";
-    private static final String VALUE_CORRECT = "B";
     private static final String WELCOME_MESSAGE = "Hello! This is Guess Number!\nThere are 4 digit number. You have 6 chances to guess the number!\nPlease input 4 number with comma, ie: 1,2,3,4 or 5,6,7,8";
     private static final String WIN_MESSAGE = "You Win!\nAnswer is ";
     private static final String LOSE_MESSAGE = "You Lose!\nAnswer is ";
@@ -65,36 +63,27 @@ public class GuessNumberGame {
         List<String> inputList = new ArrayList<>(Arrays.asList(input.split(COMMA)));
         List<Integer> inputIntegerList = inputList.stream().map(Integer::parseInt).distinct().collect(Collectors.toList());
 
-        String result = getValueAndPositionCorrectResult(inputIntegerList) + getValueCorrectResult(inputIntegerList);
+        String result = getGameResult(inputIntegerList);
         if (result.equals(ALL_CORRECT_RESULT_PATTERN)) {
             isWin = true;
         }
 
         return result;
     }
-// TODO return counter only, combine 2 method
-    protected String getValueAndPositionCorrectResult(List<Integer> userInputList) {
-        int counter = 0;
-        int value;
-        for (Integer key : answer.keySet()) {
-            value = answer.get(key);
-            if (userInputList.get(key).equals(value)) {
-                counter += 1;
-            }
-        }
-        return counter + VALUE_AND_POSITION_CORRECT;
-    }
 
-    protected String getValueCorrectResult(List<Integer> userInputList) {
-        int counter = 0;
+    protected String getGameResult(List<Integer> userInputList){
+        Result result = new Result();
         int value;
         for (Integer key : answer.keySet()) {
             value = answer.get(key);
             if (!userInputList.get(key).equals(value) && userInputList.contains(value)) {
-                counter += 1;
+                result.counterOfValueCorrect++;
+            }
+            if (userInputList.get(key).equals(value)) {
+                result.counterOfValuePositionCorrect++;
             }
         }
-        return counter + VALUE_CORRECT;
+        return result.getResultString();
     }
 
 }
